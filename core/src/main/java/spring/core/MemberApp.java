@@ -13,6 +13,7 @@ public class MemberApp {
 //        Appconfig appconfig = new Appconfig();
 //        MemberService memberService = appconfig.memberService();
 
+        // ApplicationContext = 스프링컨테이너
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 

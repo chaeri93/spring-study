@@ -6,7 +6,8 @@ public class StatefulService {
 
     public void order(String name, int price) {
         System.out.println("name = " + name + "price = " + price);
-        this.price = price;
+        this.price = price; // 여기가 문제!!
+        // return price -> 로 해결
     }
 
     public int getPrice() {

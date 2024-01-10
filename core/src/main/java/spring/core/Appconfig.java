@@ -11,10 +11,14 @@ import spring.core.member.MemoryMemberRepository;
 import spring.core.order.OrderService;
 import spring.core.order.OrderServiceImpl;
 
-@Configuration
+@Configuration // 설정(구성 정보)
 public class Appconfig {
 
-    @Bean
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService -> new MemoryMemberRepository()
+    // 각각 다른 2개의 MemoryMemberRepository가 생성되면서 싱글톤이 깨지는 것처럼 보임
+
+    @Bean // 메서드 호출 후 반환 된 객체를 스프링 컨테이너에 등록
     public MemberService memberService() {
         System.out.println("Appconfig.memberService");
         return new MemberServiceImpl(memberRepository());

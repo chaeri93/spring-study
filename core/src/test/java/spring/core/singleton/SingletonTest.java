@@ -30,7 +30,7 @@ public class SingletonTest {
     }
 
     @Test
-    @DisplayName("스프링 없는 순수한 DI 컨테이너")
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
     void singletonServiceTest() {
         SingletonService singletonService1 = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
