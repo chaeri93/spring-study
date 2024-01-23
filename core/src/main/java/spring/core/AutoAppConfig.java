@@ -15,8 +15,8 @@ import spring.core.member.MemoryMemberRepository;
 ) // @Component가 붙은 모든 클래스를 스프링 빈으로 등록
 public class AutoAppConfig {
 
-    @Bean(name = "memoryMemberRepository") // 수동등록 빈이 우선권 -> 오버라이딩
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository") // 수동등록 빈이 우선권 -> 오버라이딩
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 }
