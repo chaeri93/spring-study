@@ -1,13 +1,29 @@
 package hello.itemservice.domain.item;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.ScriptAssert;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
+@ScriptAssert(lang = "javascript", script = "_this.price * _this.quantity >= 10000")
 public class Item {
 
+    @NotNull(groups = Updatecheck.class)
     private Long id;
+
+    @NotBlank(groups = {SaveCheck.class, Updatecheck.class})
     private String itemName;
+
+    @NotNull(groups = {SaveCheck.class, Updatecheck.class})
+    @Range(min = 1000, max = 1000000, groups = {SaveCheck.class, Updatecheck.class})
     private Integer price;
+
+    @NotNull(groups = {SaveCheck.class, Updatecheck.class})
+//    @Max(9999)
     private Integer quantity;
 
     public Item() {
